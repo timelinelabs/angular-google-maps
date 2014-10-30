@@ -44,14 +44,22 @@
                     dragging="map.dragging"
                     draggable="true"
                     control="map.control">
-            <ui-gmap-window show="true" coords="map.center" options="windowOptions">
-                <div class="popup" style="width: 100px; height: 50px;">
+            <!-- <ui&#45;gmap&#45;window show="true" coords="map.center" options="windowOptions"> -->
+            <!--     <div class="popup" style="width: 100px; height: 50px;"> -->
+            <!--         <p>test = {{test.name}}</p> -->
+            <!--     </div> -->
+            <!-- </ui&#45;gmap&#45;window> -->
+            <ui-gmap-windows models="windows" show="'show'" coords="'self'">
+                <div style="width: 100px; height: 500px;">
+                    <p>{{$id}}</p>
+                    <p>{{show}}</p>
+                    <p>2{{latitude}}</p>
+                    <p>3{{model.latitude}}<p>
                     <p>test = {{test.name}}</p>
-                </div>
-            </ui-gmap-window>
-            <ui-gmap-windows models="windows" show="'show'" coords="'self'" options="windowOptions">
-                <div style="width: 100px; height: 50px;">
-                    <p>test = {{test.name}}</p>
+                    <div ng-non-bindable>
+                      <p>{{$id}}</p>
+                      <p>NON BINDABLE - {{latitude}}</p>
+                    </div>
                 </div>
             </ui-gmap-windows>
         </ui-gmap-google-map>

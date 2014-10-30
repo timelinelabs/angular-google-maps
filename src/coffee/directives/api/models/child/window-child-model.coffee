@@ -48,6 +48,7 @@ angular.module("google-maps.directives.api.models.child".ns())
               #being double careful for race condition on @opts.position via watch coords (if element and coords change at same time)
               @opts.position = @getCoords @scope.coords if @scope.coords
               defaults = @opts
+            debugger
             if @element
               @html = if _.isObject(@element) then @element.html() else @element
             _opts = if @scope.options then @scope.options else defaults
@@ -145,6 +146,8 @@ angular.module("google-maps.directives.api.models.child".ns())
               @gWin.setContent(compiled[0])
 
             unless @gWin.isOpen()
+              console.log @scope.template
+              window.gw = @gWin
               @gWin.open(@mapCtrl, if @getGmarker() then @getGmarker() else undefined)
               @model.show = @gWin.isOpen()
 

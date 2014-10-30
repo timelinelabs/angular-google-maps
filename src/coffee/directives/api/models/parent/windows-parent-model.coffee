@@ -190,7 +190,7 @@ angular.module("google-maps.directives.api.models.parent".ns())
               @contentKeys = Object.keys(models[0])
 
           createWindow: (model, gMarker, gMap)=>
-            childScope = @linked.scope.$new(false)
+            childScope = @linked.scope.$new(true)
             @setChildScope(childScope, model)
             childScope.$watch('model', (newValue, oldValue) =>
               if(newValue != oldValue)

@@ -1,4 +1,4 @@
-/*! angular-google-maps 2.0.6 2014-10-28
+/*! angular-google-maps 2.0.6 2014-10-30
  *  AngularJS directives for Google Maps
  *  git: https://github.com/angular-ui/angular-google-maps.git
  */
@@ -787,6 +787,7 @@ Nicholas McCready - https://twitter.com/nmccready
             ret = defaults.content;
           } else {
             if ($compile != null) {
+              debugger;
               parsed = $compile(content)(scope);
               if (parsed.length > 0) {
                 ret = parsed[0];
@@ -3035,6 +3036,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
               }
               defaults = this.opts;
             }
+            debugger;
             if (this.element) {
               this.html = _.isObject(this.element) ? this.element.html() : this.element;
             }
@@ -3176,6 +3178,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
               this.gWin.setContent(compiled[0]);
             }
             if (!this.gWin.isOpen()) {
+              console.log(this.scope.template);
+              window.gw = this.gWin;
               this.gWin.open(this.mapCtrl, this.getGmarker() ? this.getGmarker() : void 0);
               this.model.show = this.gWin.isOpen();
               return _.defer((function(_this) {
@@ -4758,7 +4762,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
 
         WindowsParentModel.prototype.createWindow = function(model, gMarker, gMap) {
           var child, childScope, fakeElement, opts, _ref, _ref1;
-          childScope = this.linked.scope.$new(false);
+          childScope = this.linked.scope.$new(true);
           this.setChildScope(childScope, model);
           childScope.$watch('model', (function(_this) {
             return function(newValue, oldValue) {
@@ -6820,7 +6824,7 @@ angular.module('google-maps.wrapped'.ns()).service('GoogleMapsUtilV3'.ns(), func
   return {
     init: _.once(function () {
       //BEGIN REPLACE
-      /*! angular-google-maps 2.0.6 2014-10-28
+      /*! angular-google-maps 2.0.6 2014-10-30
  *  AngularJS directives for Google Maps
  *  git: https://github.com/angular-ui/angular-google-maps.git
  */
@@ -9859,6 +9863,7 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
   // ... then deal with the label:
   this.label.setMap(theMap);
 };
+
       //END REPLACE
       window.InfoBox = InfoBox;
       window.Cluster = Cluster;

@@ -94,6 +94,7 @@ angular.module("google-maps.directives.api.utils".ns())
       ret = defaults.content
     else
       if $compile?
+        debugger
         parsed = $compile(content)(scope)
         if parsed.length > 0
           ret = parsed[0] #must be one element with children or angular bindings get lost
