@@ -5548,11 +5548,12 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
                       latitude: ne.lat(),
                       longitude: ne.lng()
                     };
-                    return s.bounds.southwest = {
+                    s.bounds.southwest = {
                       latitude: sw.lat(),
                       longitude: sw.lng()
                     };
                   }
+                  return s.zoom = _m.zoom;
                 });
               });
               if (angular.isDefined(scope.events) && scope.events !== null && angular.isObject(scope.events)) {
@@ -9277,7 +9278,6 @@ if (typeof String.prototype.trim !== 'function') {
         return this.replace(/^\s+|\s+$/g, '');
     }
 }
-
 ;/**
  * 1.1.9-patched
  * @name MarkerWithLabel for V3
