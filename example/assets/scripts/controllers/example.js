@@ -182,7 +182,9 @@ angular.module("angular-google-maps-example", ['uiGmapgoogle-maps'])
       $log.info('CLICK CLICK');
       Logger.info('CLICK CLICK');
     },
+
     map: {
+      randomMarkersControl: { },
       show: true,
       control: {},
       version: "uknown",

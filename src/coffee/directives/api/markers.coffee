@@ -26,6 +26,8 @@ angular.module("uiGmapgoogle-maps.directives.api")
           if scope.control?
             scope.control.getGMarkers = ->
               parentModel.gMarkerManager?.getGMarkers()
+            scope.control.getClusters = ->
+              parentModel?.gMarkerManager?.clusterer.clusters_
             scope.control.getChildMarkers = ->
               parentModel.markerModels
           scope.deferred.resolve()

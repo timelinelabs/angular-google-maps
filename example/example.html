@@ -88,7 +88,7 @@
         </ui-gmap-marker>
 
         <ui-gmap-markers models="map.randomMarkers" coords="'self'" icon="'icon'" click="'onClicked'"
-                    doCluster="map.doClusterRandomMarkers" clusterOptions="map.clusterOptions">
+                    doCluster="map.doClusterRandomMarkers" clusterOptions="map.clusterOptions" control="map.randomMarkersControl">
         </ui-gmap-markers>
 
         <ui-gmap-markers models="map.markers2" coords="'self'" icon="'icon'" click="'onClicked'" options="'options'" events="map.markers2Events">
@@ -248,6 +248,18 @@
                                     </i>
                                 </a>
                             </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <!--TODO: Show dependent on clusters-->
+            <tr ng-show="true">
+                <td>clusters</td>
+                <td>
+                    <div class="well sidebar-nav">
+                        <p>Number: {{map.randomMarkersControl.getClusters().length}}</p>
+                        <ul class="nav nav-list">
+                            <li ng-repeat="c in map.randomMarkersControl.getClusters()">Cluster</li>
                         </ul>
                     </div>
                 </td>
