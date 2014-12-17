@@ -1,4 +1,4 @@
-/*! angular-google-maps 2.0.12 2014-12-15
+/*! angular-google-maps 2.0.12 2014-12-16
  *  AngularJS directives for Google Maps
  *  git: https://github.com/angular-ui/angular-google-maps.git
  */
@@ -6560,6 +6560,10 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
               scope.control.getGMarkers = function() {
                 var _ref;
                 return (_ref = parentModel.gMarkerManager) != null ? _ref.getGMarkers() : void 0;
+              };
+              scope.control.getClusters = function() {
+                var _ref;
+                return parentModel != null ? (_ref = parentModel.gMarkerManager) != null ? _ref.clusterer.clusters_ : void 0 : void 0;
               };
               scope.control.getChildMarkers = function() {
                 return parentModel.markerModels;
